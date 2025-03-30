@@ -43,7 +43,7 @@ curl-${CURLV}/build64/lib/.libs:
 	cd curl-${CURLV} && sh ../tinycurlx64.sh
 
 simplehttp.so: main.c thirdparty curl-${CURLV}
-	${CC} -I${LUAINC} -I${CURLINC} -Os -fPIC -shared ${LDFLAGS} -o $@ $<
+	${CC} -I${LUAINC} -I${CURLINC} -Os -fPIC -shared ${LDFLAGS} -o $@ $< -llua
 
 simplehttp.dll: main.c librime-lua${LUAV} thirdparty curl-${CURLV}/build32/lib/.libs
 	${CC_mingw} -I${LUAINC} -I${CURLINC} -Os -shared -o $@ $< -Wl,--gc-sections -Wl,-s -static-libgcc ${LUALIB} ${CURLLIB}
