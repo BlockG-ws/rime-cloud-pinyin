@@ -63,7 +63,7 @@ libiconv-${ICONV_V}/build64/lib/.libs: libiconv-${ICONV_V}
 	cd libiconv-${ICONV_V} && sh ../iconvx64.sh
 
 simplehttp.so: main.c thirdparty curl-${CURLV}
-	${CC} -I${LUAINC} -I${CURLINC} -Os -fPIC -shared ${LDFLAGS} -o $@ $< -llua
+	${CC} -I${LUAINC} -I${CURLINC} -Os -fPIC -shared ${LDFLAGS} -o $@ $<
 
 simplehttp.dll: main.c librime-lua${LUAV} thirdparty curl-${CURLV}/build32/lib/.libs
 	${CC_mingw} -I${LUAINC} -I${CURLINC} -Os -shared -o $@ $< -Wl,--gc-sections -Wl,-s -static-libgcc ${LUALIB} ${CURLLIB}
